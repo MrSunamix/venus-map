@@ -1,0 +1,349 @@
+:root {
+    font-family: Poppins;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    color: #0f0f0f;
+    background-color: #f8e2b0;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    --glow-hue: 222deg;
+    --shadow-hue: 180deg;
+    --spring-easing: linear(
+    0, 0.002, 0.01 0.9%, 0.038 1.8%, 0.156, 0.312 5.8%, 0.789 11.1%, 1.015 14.2%,
+    1.096, 1.157, 1.199, 1.224 20.3%, 1.231, 1.231, 1.226, 1.214 24.6%,
+    1.176 26.9%, 1.057 32.6%, 1.007 35.5%, 0.984, 0.968, 0.956, 0.949 42%,
+    0.946 44.1%, 0.95 46.5%, 0.998 57.2%, 1.007, 1.011 63.3%, 1.012 68.3%,
+    0.998 84%, 1
+  );
+    --spring-duration: 1.33s;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* Line spacer */
+
+.line-spacer {
+    height: 2px;
+    width: 100%;
+    background-color: black;
+}
+
+.switch {
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #5bc236;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #5bc236;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Boxes  for DescriptionSide */
+.box-1 {
+  position: relative;
+  width: 300px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.box-2 {
+  position: relative;
+  width: 300px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.box-3 {
+  position: relative;
+  width: 300px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.box-3 {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.box-3[v-show="false"] {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.box-console {
+  margin-top: 10px;
+  width: 1660px;
+  height: 150px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+}
+
+.box-title {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background-color: #d3a567;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.status-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.indicator {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Styling for different indicator states */
+.indicator.receiving-robot-information {
+    background-color: green;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.mqtt-unsuccessful-connection {
+    background-color: red;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.mqtt-successfully-connected {
+    background-color: green;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.map-receiving-information-1 {
+    background-color: blue;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.map-receiving-information-2 {
+    background-color: lightblue;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.mqtt-information-send-on {
+    background-color: green;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.mqtt-information-send-off {
+  background-color: orange;
+  transition: background-color 0.5s ease;
+}
+
+.indicator.mqtt-information-receive-on {
+    background-color: green;
+    transition: background-color 0.5s ease;
+}
+
+.indicator.mqtt-information-receive-off {
+    background-color: orange;
+    transition: background-color 0.5s ease;
+}
+
+/* Animations */
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+    transition: opacity 0.2s, transform 1s;
+}
+
+@keyframes rightBox {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    20% {
+      left: -80%;
+      opacity: 0.2;
+    }
+    40% {
+      left: -60%;
+      opacity: 0.4;
+    }
+    60% {
+      left: -40%;
+      opacity: 0.6;
+    }
+    80% {
+      left: -20%;
+      opacity: 0.8;
+    }
+    100% {
+      left: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes leftBox {
+    0% {
+      right: -100%;
+      opacity: 0;
+    }
+    20% {
+      right: -80%;
+      opacity: 0.2;
+    }
+    40% {
+      right: -60%;
+      opacity: 0.4;
+    }
+    60% {
+      right: -40%;
+      opacity: 0.6;
+    }
+    80% {
+      right: -20%;
+      opacity: 0.8;
+    }
+    100% {
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes topBox {
+    0% {
+      bottom: -100%;
+      opacity: 0;
+    }
+    20% {
+      bottom: -80%;
+      opacity: 0.2;
+    }
+    40% {
+      bottom: -60%;
+      opacity: 0.4;
+    }
+    60% {
+      bottom: -40%;
+      opacity: 0.6;
+    }
+    80% {
+      bottom: -20%;
+      opacity: 0.8;
+    }
+    100% {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes mapBox {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.2;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    60% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Transition animations */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}

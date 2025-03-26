@@ -1,0 +1,44 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "venus-map",
+    "version": "1.2.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "systemTray": {
+      "iconPath": "icons/512x512.png",
+      "iconAsTemplate": true
+    },
+    "windows": [
+      {
+        "title": "5EID0 - Engineering Challenge for Venus",
+        "width": 1720,
+        "height": 1020,
+        "resizable": false,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.venus-map",
+      "icon": ["icons/512x512.png"]
+    }
+  }
+}
